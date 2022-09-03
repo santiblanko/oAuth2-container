@@ -1,4 +1,4 @@
-# Add oauth2 to a container with a few lines.
+# Add oAuth2 to a container with a few lines.
 
 OAuth2 Proxy is a reverse proxy and static file server that provides authentication using third-party providers like Google, GitHub, and others for validating accounts by email, domain, or group.
 
