@@ -12,6 +12,7 @@ Oauth2 Proxy is useful when you want:
 docker-compose up -d
 ```
 
+```
 /ping - returns a 200 OK response, which is intended for use with health checks
 /metrics - Metrics endpoint for Prometheus to scrape, serve on the address specified by --metrics-address, disabled by default
 /oauth2/sign_in - the login page, which also doubles as a sign out page (it clears cookies)
@@ -20,5 +21,7 @@ docker-compose up -d
 /oauth2/callback - the URL used at the end of the OAuth cycle. The oauth app will be configured with this as the callback url.
 /oauth2/userinfo - the URL is used to return user's email from the session in JSON format.
 /oauth2/auth - only returns a 202 Accepted response or a 401 Unauthorized response;
+```
+
 
 [oauth2proxy - documentation ](https://github.com/oauth2-proxy/oauth2-proxy)
