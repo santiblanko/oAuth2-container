@@ -26,3 +26,4 @@ docker-compose up -d
 
 
 [oauth2proxy - documentation ](https://github.com/oauth2-proxy/oauth2-proxy)
+[Video oauth2 flow] (https://www.youtube.com/watch?v=V36F6xPaaFU)
