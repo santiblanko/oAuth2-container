@@ -8,7 +8,7 @@ services:
       - --http-address
       - 0.0.0.0:4180
     environment:
-      OAUTH2_PROXY_UPSTREAMS: http://172.28.0.3
+      OAUTH2_PROXY_UPSTREAMS: http://app
       OAUTH2_PROXY_PROVIDER_DISPLAY_NAME: google
       OAUTH2_PROXY_PROVIDER: google
       OAUTH2_PROXY_CLIENT_ID: 945751821525-7qiprne3se8acburqe9nf1b38sfr0n7k.apps.googleusercontent.com
