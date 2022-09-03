@@ -24,6 +24,7 @@ docker-compose up -d
 /oauth2/auth - only returns a 202 Accepted response or a 401 Unauthorized response;
 ```
 
+### Others implementations
 
 - [oauth2proxy - documentation ](https://github.com/oauth2-proxy/oauth2-proxy)
 - [Video oauth2 flow](https://www.youtube.com/watch?v=V36F6xPaaFU)
