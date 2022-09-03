@@ -8,6 +8,7 @@ Oauth2 Proxy is useful when you want:
 - To rely on a third-party provider to handle the authentication process (Google, GitHub, etc.)
 - To keep a clear separation between the authentication service and the rest of your applications
 
+For start:
 ```
 docker-compose up -d
 ```
