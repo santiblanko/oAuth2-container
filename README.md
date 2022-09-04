@@ -56,4 +56,7 @@ curl -X POST 'http://localhost:8080/auth/realms/test/protocol/openid-connect/tok
  --data-urlencode 'password=123'
 ```
 
-
+Get Realm config
+```
+http://localhost:8080/auth/realms/test/.well-known/openid-configuration
+```
