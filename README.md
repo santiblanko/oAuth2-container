@@ -36,7 +36,7 @@ docker-compose up -d
 
 ### Keycloak 
 
-### Generate password for admin
+Generate password for admin:
 
 ```
 docker exec local_keycloak \
@@ -45,6 +45,8 @@ docker exec local_keycloak \
     -p admin \
 && docker restart local_keycloak
 ```
+
+Request token:
 ```
 curl -X POST 'http://localhost:8080/auth/realms/test/protocol/openid-connect/token' \
  --header 'Content-Type: application/x-www-form-urlencoded' \
