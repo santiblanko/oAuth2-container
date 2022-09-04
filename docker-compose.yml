@@ -19,3 +19,32 @@ services:
 
     ports:
       - 4180:4180
+    
+    
+    
+  postgres:
+    image: postgres:13.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloak
+    networks:
+      - local-keycloak
+
+  keycloak:
+    depends_on:
+      - postgres
+    container_name: local_keycloak
+    environment:
+      DB_VENDOR: postgres
+      DB_ADDR: postgres
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: keycloak
+    image: jboss/keycloak:${KEYCLOAK_VERSION}
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    networks:
+      - local-keycloak
