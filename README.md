@@ -32,3 +32,26 @@ docker-compose up -d
 - [Passport Implementation](https://www.youtube.com/watch?v=Q0a0594tOrc)
 - [keycloak + react](https://blog.logrocket.com/implement-keycloak-authentication-react/)
 - [keycloak + nest](https://github.com/chamithrepo/nest-keycloak-oauth)
+
+
+### Keycloak commands
+
+### Generate password for admin
+
+```
+docker exec local_keycloak \
+    /opt/jboss/keycloak/bin/add-user-keycloak.sh \
+    -u admin \
+    -p admin \
+&& docker restart local_keycloak
+```
+```
+curl -X POST 'http://localhost:8080/auth/realms/test/protocol/openid-connect/token' \
+ --header 'Content-Type: application/x-www-form-urlencoded' \
+ --data-urlencode 'grant_type=password' \
+ --data-urlencode 'client_id=my-client' \
+ --data-urlencode 'username=santiago.blanco@soluntech.com' \
+ --data-urlencode 'password=123'
+```
+
+
