@@ -10,7 +10,7 @@ services:
     environment:
       OAUTH2_PROXY_UPSTREAMS: http://app
       OAUTH2_PROXY_PROVIDER_DISPLAY_NAME: keycloak
-      OAUTH2_PROXY_PROVIDER: oicd
+      OAUTH2_PROXY_PROVIDER: oidc
       OAUTH2_PROXY_CLIENT_ID: my-client
       OAUTH2_PROXY_CLIENT_SECRET: f20af500-9a3e-44e1-b552-498379e21c8b
       OAUTH2_PROXY_EMAIL_DOMAINS: '*'
@@ -19,8 +19,40 @@ services:
       OAUTH2_PROXY_LOGIN_URL: http://localhost:8080/auth/realms/test/protocol/openid-connect/auth
       OAUTH2_PROXY_REDEEM_URL: http://localhost:8080/auth/realms/test/protocol/openid-connect/token
       OAUTH2_PROXY_PROFILE_URL: http://localhost:8080/auth/realms/test/protocol/openid-connect/userinfo"
-      OAUTH2_OIDC_ISSUER_URL: http://localhost:8080/auth/realms/test
-      
+      OAUTH2_PROXY_ISSUER_URL: http://localhost:8080/auth/realms/test
+      ISSUER_URL: http://localhost:8080/auth/realms/test
     ports:
       - 4180:4180
-   
+
+
+
+  postgres:
+    image: postgres:13.2
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloak
+    networks:
+      - local-keycloak
+
+  keycloak:
+    depends_on:
+      - postgres
+    container_name: local_keycloak
+    environment:
+      DB_VENDOR: postgres
+      DB_ADDR: postgres
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: keycloak
+    image: jboss/keycloak:13.0.0
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    networks:
+      - local-keycloak
+
+
+networks:
+  local-keycloak:
