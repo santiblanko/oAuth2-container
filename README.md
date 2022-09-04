@@ -50,7 +50,7 @@ curl -X POST 'http://localhost:8080/auth/realms/test/protocol/openid-connect/tok
  --header 'Content-Type: application/x-www-form-urlencoded' \
  --data-urlencode 'grant_type=password' \
  --data-urlencode 'client_id=my-client' \
- --data-urlencode 'username=santiago.blanco@soluntech.com' \
+ --data-urlencode 'username=santiago.blanco@123.com' \
  --data-urlencode 'password=123'
 ```
 
